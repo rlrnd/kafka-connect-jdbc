@@ -121,7 +121,7 @@ public class MySqlDatabaseDialect extends GenericDatabaseDialect {
       case BOOLEAN:
         return "TINYINT";
       case STRING:
-        return "TEXT";
+        return field.isPrimaryKey() ? "VARCHAR(50)" : "TEXT";
       case BYTES:
         return "VARBINARY(1024)";
       default:
